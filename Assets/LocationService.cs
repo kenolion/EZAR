@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LocationService : MonoBehaviour
 {
@@ -49,15 +50,16 @@ public class LocationService : MonoBehaviour
                   Input.location.lastData.timestamp);
         }
         // Stop service if there is no need to query location updates continuously
-
+       
         Input.location.Stop();
     }
     public void GetLocation()
     {
-        json = new Json();
+        json = GetComponent<Json>();
 
         StartCoroutine(Start());
         StartCoroutine(json.initialize(Input.location.lastData.latitude, Input.location.lastData.longitude, 500));
+        
     }
 
 }

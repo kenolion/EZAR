@@ -72,8 +72,7 @@ public class Manager : MonoBehaviour
         currentTab = 1;
 
         changePanel();
-        GetComponent<Manager>().panels[1].transform.GetChild(3).GetComponent<Dropdown>().ClearOptions();
-        GetComponent<Manager>().panels[1].transform.GetChild(3).GetComponent<Dropdown>().AddOptions(GetComponent<LocationService>().json.parsejson);
+        
         
     }
     public void setCurrentTabToThree()

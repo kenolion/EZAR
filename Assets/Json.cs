@@ -16,7 +16,7 @@ public class Json : MonoBehaviour
     public IEnumerator initialize(float lat, float lon, int radius)
     {
 
-        string url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + "3.1577405" + "," + "101.712167" + "&radius=" + radius + "&type=travel_agency&key=AIzaSyAQuGtZ-z9MwBefxyW5hAY25-O50XKj_J0";
+        string url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + "3.1577405" + "," + "101.712167" + "&radius=" + radius + "&type=point_of_interest&key=AIzaSyAQuGtZ-z9MwBefxyW5hAY25-O50XKj_J0";
 
         WWW www = new WWW(url);
         yield return www;
@@ -45,7 +45,8 @@ public class Json : MonoBehaviour
             Debug.Log(parsejson[i]);
 
         }
-       
+        GetComponent<Manager>().panels[1].transform.GetChild(3).GetComponent<Dropdown>().ClearOptions();
+        GetComponent<Manager>().panels[1].transform.GetChild(3).GetComponent<Dropdown>().AddOptions(GetComponent<LocationService>().json.parsejson);
     }
 
 }
