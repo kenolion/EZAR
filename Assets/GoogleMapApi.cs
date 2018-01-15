@@ -27,8 +27,14 @@ public class GoogleMapApi : MonoBehaviour
     public int scale;
 
 
+    public void Start()
+    {
+      
+        
+    }
     IEnumerator Map()
     {
+        
         url = "https://maps.googleapis.com/maps/api/staticmap?center=" + lat + "," + lon +
               "&zoom=" + zoom + "&size=" + mapWidth + "x" + mapHeight + "&scale=" + scale
               + "&maptype=" + mapSelected +
@@ -39,22 +45,19 @@ public class GoogleMapApi : MonoBehaviour
         img.SetNativeSize();
 
     }
-    // Use this for initialization
-    void Start()
+
+
+    public void getMap()
     {
-        
         li = Input.location.lastData;
-        lat = li.latitude;
-        lon = li.longitude;
+        
         img = gameObject.GetComponent<RawImage>();
-        StartCoroutine(Map());
+        //StartCoroutine(Map());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    
 
-    }
+
 
 
 }
