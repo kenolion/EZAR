@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 3898862570
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: petronas twin towers
+      Dependencies: {}
+    Info_1:
+      Name: atmosphere 360 revolving restaurant
+      Dependencies: {}

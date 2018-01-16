@@ -126,6 +126,7 @@ public class Manager : MonoBehaviour
                 if (currentTab != 2)
                 {
                     parentPanel.SetActive(true);
+                    transform.GetChild(2).gameObject.SetActive(false);
                     panels[5].SetActive(false);
                 }
             }
@@ -140,15 +141,22 @@ public class Manager : MonoBehaviour
         {
             if (modelsParent.transform.childCount == 1)
             {
-                Destroy(modelsParent.transform.GetChild(0).gameObject);
+              //  Destroy(modelsParent.transform.GetChild(0).gameObject);
             }
-            Instantiate(modelSettings.model, modelsParent.transform);
+            //Instantiate(modelSettings.model, modelsParent.transform);
         }
         else
         {
-            Destroy(eventHandler.PrevGameObject.transform.GetChild(0).gameObject);
-            Instantiate(modelSettings.model, eventHandler.PrevGameObject.transform);
+            //Destroy(eventHandler.PrevGameObject.transform.GetChild(0).gameObject);
+            //Instantiate(modelSettings.model, eventHandler.PrevGameObject.transform);
         }
+        if (modelsParent.transform.childCount == 1)
+        {
+            Destroy(modelsParent.transform.GetChild(0));
+        }
+
+        modelSettings.model = modelSettings.dlAsset.model;
+        modelSettings.model.transform.SetParent(modelsParent.transform);
         StopAllCoroutines();
         modelSettings.modelDialog.GetComponent<CanvasGroup>().alpha = 1;
         modelSettings.modelDialog.transform.GetChild(0).GetComponent<Text>().text = modelSettings.model.name + " model selected";
@@ -161,7 +169,7 @@ public class Manager : MonoBehaviour
 
     public void StartCamera()
     {
-        panels[5].SetActive(true);
+        transform.GetChild(2).gameObject.SetActive(true);
         parentPanel.SetActive(false);
 
 

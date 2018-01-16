@@ -15,8 +15,9 @@ public class Json : MonoBehaviour
     // Sample JSON for the following script has attached.
     public IEnumerator initialize(float lat, float lon, int radius)
     {
-
-        string url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + "3.1577405" + "," + "101.712167" + "&radius=" + radius + "&type=point_of_interest&key=AIzaSyAQuGtZ-z9MwBefxyW5hAY25-O50XKj_J0";
+        //klcc = 3.1577405 101.712167
+        //kl tower = 3.152917 101.7038288
+        string url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + 3.152917 + "," + 101.7038288 + "&radius=" + radius + "&type=point_of_interest&key=AIzaSyAQuGtZ-z9MwBefxyW5hAY25-O50XKj_J0";
 
         WWW www = new WWW(url);
         yield return www;
@@ -53,6 +54,7 @@ public class Json : MonoBehaviour
 public class parseJSON
 {
     public string name;
+    
 
     private GameObject model;
 
